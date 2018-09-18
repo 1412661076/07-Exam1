@@ -2,8 +2,8 @@
 Exam 1, problem 3.
 
 Authors: David Mutchler, Vibha Alangar, Valerie Galluzzi, Mark Hays,
-         Amanda Stouder, their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         Amanda Stouder, their colleagues and Rui Fang.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -43,6 +43,26 @@ def run_test_problem3():
 
 
 def problem3(point, length, delta, window):
+    p2 = rg.Point(point.x, point.y + length)
+    l = rg.Line(point, p2)
+    l.color = 'black'
+    l.thickness = 3
+    l.attach_to(window)
+    window.render()
+
+    for k in range(length // delta + 1):
+        lines = rg.Line(point, rg.Point(point.x + length, point.y))
+        lines.thickness = 3
+        point.y = point.y + delta
+        length = length + 20
+        if k % 3 == 0:
+            lines.color = 'magenta'
+        if k % 3 == 1:
+            lines.color = 'cyan'
+        if k % 3 == 2:
+            lines.color = 'spring green'
+        lines.attach_to(window)
+    window.render()
     """
     See   problem3_picture.pdf   in this project for pictures
     that may help you better understand the following specification:
@@ -88,7 +108,7 @@ def problem3(point, length, delta, window):
       :type window:  rg.RoseWindow
     """
     # --------------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     # TODO (continued):  IMPORTANT: Use this ITERATIVE ENHANCEMENT PLAN:
     # TODO (continued):    1. Make the sole VERTICAL line appear,
     # TODO (continued):         with thickness 3.

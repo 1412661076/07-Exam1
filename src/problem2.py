@@ -2,8 +2,8 @@
 Exam 1, problem 2.
 
 Authors: David Mutchler, Vibha Alangar, Valerie Galluzzi, Mark Hays,
-         Amanda Stouder, their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         Amanda Stouder, their colleagues and Rui Fang.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import testing_helper
 import time
@@ -20,7 +20,7 @@ def main():
 def problem2a_testing():
     """ Tests the   sum_of_digits_of_sum_of_factors   function. """
     ############################################################################
-    #  TODO: 2. Implement this TEST function.  See the IMPORTANT NOTE below.
+    #  DONE: 2. Implement this TEST function.  See the IMPORTANT NOTE below.
     #     This problem TESTS the    sum_of_digits_of_sum_of_factors    function
     #     that is defined below.  Include at least **   4   ** tests.
     #     Use the usual format:
@@ -44,6 +44,34 @@ def problem2a_testing():
     print('---------------------------------------------------------')
     print('Testing the   sum_of_digits_of_sum_of_factors   function:')
     print('---------------------------------------------------------')
+
+    # Test 1:
+    expected = 3    #2 + 1 = 3, 3 → 3
+    actual = sum_of_digits_of_sum_of_factors(2)
+    print()
+    print('Expected:', expected)
+    print('Actual:  ', actual)
+
+    # Test 2:
+    expected = 3    #1+2+3+6 = 12， 12 → 3
+    actual = sum_of_digits_of_sum_of_factors(6)
+    print()
+    print('Expected:', expected)
+    print('Actual:  ', actual)
+
+    # Test 3:
+    expected = 6    #1+2+13+26 = 42， 42 → 6
+    actual = sum_of_digits_of_sum_of_factors(26)
+    print()
+    print('Expected:', expected)
+    print('Actual:  ', actual)
+
+    # Test 4:
+    expected = 11   #1+37 = 38， 38 → 11
+    actual = sum_of_digits_of_sum_of_factors(37)
+    print()
+    print('Expected:', expected)
+    print('Actual:  ', actual)
 
 
 def sum_of_digits_of_sum_of_factors(n):
@@ -70,12 +98,12 @@ def sum_of_digits_of_sum_of_factors(n):
 
 
 ################################################################################
-# TODO: 3.  READ the green doc-string for the   number_of_factors   function
+# DONE: 3.  READ the green doc-string for the   number_of_factors   function
 #    defined below.  You do NOT need to understand its implementation,
 #    just its specification (per the doc-string).
 #    You should  ** CALL **  that function as needed in implementing
 #    the other functions.
-# TODO (continued):  After you have READ this _TODO_, change its _TODO_ to DONE.
+# DONE (continued):  After you have READ this _TODO_, change its _TODO_ to DONE.
 ################################################################################
 
 def number_of_factors(n):
@@ -102,8 +130,8 @@ def number_of_factors(n):
 
     return count
     ############################################################################
-    #  TODO (continued):  Students: Do NOT touch the above   number_of_factors
-    #  TODO (continued)   function; CALL it as appropriate in problem(s) below.
+    #  DONE (continued):  Students: Do NOT touch the above   number_of_factors
+    #  DONE (continued)   function; CALL it as appropriate in problem(s) below.
     ############################################################################
 
 
@@ -284,6 +312,15 @@ def run_test_problem2b():
 
 
 def problem2b(a, b, x):
+    sum2b = 0
+
+    for k in range(b - a + 1):
+        if number_of_factors(a + k) >= x:
+            sum2b = sum2b + a + k
+
+    return sum2b
+
+
     """
     What comes in:  Positive integers a, b and x, with a <= b.
     What goes out:
@@ -310,12 +347,12 @@ def problem2b(a, b, x):
          and the sum   16 + 18 + 20 + 24   is 78.
      """
     ############################################################################
-    # TODO: 4. Implement and test this function.  See the IMPORTANT NOTE below!
+    # DONE: 4. Implement and test this function.  See the IMPORTANT NOTE below!
     #          Tests have been written for you (above).
     ############################################################################
-    # TODO (continued): IMPORTANT NOTE:
-    # TODO (continued):   **  For full credit you must appropriately use
-    # TODO (continued):       (i.e., call) the   number_of_factors   function
+    # DONE (continued): IMPORTANT NOTE:
+    # DONE (continued):   **  For full credit you must appropriately use
+    # DONE (continued):       (i.e., call) the   number_of_factors   function
     #                         that is DEFINED ABOVE.
     ############################################################################
 
@@ -411,6 +448,10 @@ def run_test_problem2c():
 
 
 def problem1c(m):
+    sum1c = problem2b(m+1, m+9, 2)
+    sum1c2 = problem2b(m+1, m+9, 3)
+    return sum1c - sum1c2
+
     """
     What comes in:  An integer  m  that is at least 2.
     What goes out:
@@ -433,7 +474,7 @@ def problem1c(m):
            and 11 + 13 + 17 + 19 = 60.
      """
     ############################################################################
-    # TODO: 4. Implement and test this function.  See the IMPORTANT NOTE below!
+    # DONE: 4. Implement and test this function.  See the IMPORTANT NOTE below!
     #          Tests have been written for you (above).
     ############################################################################
     # TODO (continued): IMPORTANT NOTE:

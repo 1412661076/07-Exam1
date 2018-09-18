@@ -2,8 +2,8 @@
 Exam 1, problem 1.
 
 Authors: David Mutchler, Vibha Alangar, Valerie Galluzzi, Mark Hays,
-         Amanda Stouder, their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         Amanda Stouder, their colleagues and Rui Fang.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -58,6 +58,22 @@ def run_test_problem1a():
 
 
 def problem1a(rectangle, square, thickness, window):
+
+    rectangle.attach_to(window)
+    square.attach_to(window)
+
+    p2x = (rectangle.corner_1.x + rectangle.corner_2.x) / 2
+    if rectangle.corner_1.y < rectangle.corner_2.y:
+        point2 = rg.Point(p2x, rectangle.corner_1.y)
+    else:
+        point2 = rg.Point(p2x, rectangle.corner_2.y)
+
+    l = rg.Line(square.center, point2)
+    l.thickness = thickness
+    l.color = rectangle.outline_color
+    l.attach_to(window)
+    window.render()
+
     """
     See   problem1a_picture.pdf   in this project for pictures
     that may help you better understand the following specification:
@@ -89,7 +105,7 @@ def problem1a(rectangle, square, thickness, window):
       :type window:    rg.RoseWindow
     """
     # --------------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.  SEE THE PICTURES in the PDF!
+    # DONE: 2. Implement and test this function.  SEE THE PICTURES in the PDF!
     #          Tests have been written for you (above).
     # --------------------------------------------------------------------------
 
@@ -123,6 +139,18 @@ def run_test_problem1b():
 
 
 def problem1b(point, win, width, height, color):
+    x1 = point.x - width / 2
+    y1 = point.y
+    x2 = point.x + width / 2
+    y2 = point.y + height
+    p1 = rg.Point(x1, y1)
+    p2 = rg.Point(x2, y2)
+    E1 = rg.Ellipse(p1, p2)
+
+
+    E1.fill_color = color
+    E1.attach_to(win)
+    win.render()
     """
     See   problem1b_picture.pdf   in this project for pictures
     that may help you better understand the following specification:
@@ -149,7 +177,7 @@ def problem1b(point, win, width, height, color):
       :type color:  str
     """
     # --------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.  SEE THE PICTURES in the PDF!
+    # DONE: 3. Implement and test this function.  SEE THE PICTURES in the PDF!
     #          Tests have been written for you (above).
     # --------------------------------------------------------------------------
 
